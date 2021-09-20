@@ -1,0 +1,717 @@
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="csrf-token" content="iL8hUXsdXy71MbOZjq4fWUv4KGPZnJ7k17P7RClL">
+        <link rel="icon" href="https://thememakker.com/templates/oreo/hospital/laravel/public/favicon.ico" type="image/x-icon"> <!-- Favicon-->
+        <title>Dashboard - Oero Laravel</title>
+        <meta name="description" content="Oero Laravel">
+        <meta name="author" content="Oero Laravel">
+
+
+                    <link rel="stylesheet" href="{% static 'secretary/assets/plugins/bootstrap/css/bootstrap.min.css' %}">
+                    <link rel="stylesheet" href="{% static 'secretary/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css' %}">
+                    <link rel="stylesheet" href="{% static 'secretary/assets/plugins/morrisjs/morris.min.css' %}">
+                    <!-- Custom Css -->
+                    <link rel="stylesheet" href="{% static 'secretary/assets/css/mystyle.css' %}">
+                    <link rel="stylesheet" href="{% static 'secretary/assets/css/color_skins.css' %}">
+            </head>
+        <body style="background-color:#2c2c2c;" class="theme-cyan">
+        <!-- Page Loader -->
+
+        <nav class="navbar p-l-12 p-r-12 custom-nav" >
+            <ul class="nav navbar-nav navbar-left">
+          <li>
+              <div class="navbar-header">
+                  <a href="javascript:void(0);" class="bars" style=""></a>
+                  <a class="navbar-brand" href="index.html"><img src="{% static 'secretary/assets/images/logo.svg' %}" width="50" alt="Oreo"><span class="m-l-10">Signature Park</span></a>
+              </div>
+          </li>
+
+
+
+
+
+
+
+          <li class="d-none d-md-inline-block">
+
+
+      </ul>
+  </nav>
+
+</nav>        <!-- Left Sidebar -->
+<aside style="background-color:#30373e;" style="font-color:white;" id="leftsidebar" class="sidebar">
+    <ul class="nav nav-tabs">
+        &emsp;&emsp;&emsp;&emsp;<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#dashboard"><i class="zmdi zmdi-home m-r-5"></i>S P</a></li>
+        <!-- <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#user">Chairman</a></li> -->
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane stretchRight active" id="dashboard" >
+            <div class="menu">
+                <ul class="list">
+
+                    <li style="color:white;" class="header">MAIN</li>
+                    <li class="">
+                        <a style="color:white;" href="{% url 'mainhome' %}" class="active-open"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a>
+
+                    </li>
+                    <li class="">
+                        <a style="color:white;" href="{% url 'login' %}" class="active-open"><i class="zmdi zmdi-home"></i><span>Login Page</span></a>
+
+                    </li>
+
+                    <li class="">
+                        <a style="color:white;" href="{% url 'register' %}" class="active-open"><i class="zmdi zmdi-home"></i><span>Registration Page</span></a>
+
+                    </li>
+                    <li class="">
+                        <a style="color:white;" href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-widgets"></i><span>Society Events</span></a>
+                        <ul class="ml-menu">
+
+                            <li class=""><a href="{% url 'event-view' %}">View Events</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="">
+                        <a style="color:white;"  href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-view-subtitles"></i><span>Gallery</span></a>
+                        <ul class="ml-menu">
+
+                            <li class=""><a href="{% url 'image-gallery-chairman' %}">Society Gallery</a></li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a style="color:white;" href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-home"></i><span>House On Rent / Sell</span></a>
+                        <ul class="ml-menu">
+
+
+                            <li class=""><a href="{% url 'chairman-house-on-rent-view' %}">View House On Rent and Sell</a></li>
+                        </ul>
+                    </li>
+
+                    <br><br><br>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</aside>
+        <!-- Right Sidebar -->
+<aside id="rightsidebar" class="right-sidebar">
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#setting"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane slideRight active" id="setting">
+            <div class="slim_scroll">
+                <div class="card">
+
+                </div>
+                <div class="card">
+                    <h6>Skins</h6>
+                    <ul class="choose-skin list-unstyled">
+                        <li data-theme="purple">
+                            <div class="purple"></div>
+                        </li>
+                        <li data-theme="blue">
+                            <div class="blue"></div>
+                        </li>
+                        <li data-theme="cyan" class="active">
+                            <div class="cyan"></div>
+                        </li>
+                        <li data-theme="green">
+                            <div class="green"></div>
+                        </li>
+                        <li data-theme="orange">
+                            <div class="orange"></div>
+                        </li>
+                        <li data-theme="blush">
+                            <div class="blush"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card theme-light-dark">
+                    <h6>Left Menu</h6>
+                    <button class="t-light btn btn-default btn-simple btn-round btn-block">Light</button>
+                    <button class="t-dark btn btn-default btn-round btn-block">Dark</button>
+					<button class="m_img_btn btn btn-primary btn-round btn-block">Sidebar Image</button>
+                </div>
+            </div>
+        </div>
+        {% comment %} <div class="tab-pane right_chat stretchLeft" id="chat">
+            <div class="slim_scroll">
+                <div class="card">
+                    <div class="search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="input-group-addon">
+                                <i class="zmdi zmdi-search"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h6>Recent</h6>
+                    <ul class="list-unstyled">
+                        <li class="online">
+                            <a href="javascript:void(0);">
+                                <div class="media">
+                                  {% for i in mall %}
+                                    <img class="media-object " src="{{i.profile_pic.url}}" alt="">
+                                    <div class="media-body">
+                                        <span class="name">{{i.firstname}}</span>
+                                        <span class="message"></span>
+                                        <span class="badge badge-outline status"></span>
+                                    {% endfor %}
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div> {% endcomment %}
+
+    </div>
+</aside>
+
+{% block content %}
+<section style="background-color:#2c2c2c;" class="content home mrt-0">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-5 col-md- col-sm-12">
+                        <h2>Dashboard <small style="color:#30373e;" >Welcome to Signature Park</small></h2>
+                    </div>
+
+                </div>
+            </div>
+             <div class="container-fluid">
+                <div class="row clearfix">
+    <div class="col-lg-4 col-md-6">
+        <div  style="background-color:#30373e;" class="card">
+            <div class="body">
+                <h3 style="color:white;" class="number count-to m-b-0" data-from="0" data-to="{{ec}}" data-speed="2500" data-fresh-interval="700">1600 <i class="zmdi zmdi-trending-up float-right"></i></h3>
+                <p style="color:white;" >Events</p> <i style="color:white;" class="zmdi zmdi-widgets"></i></p>
+                <div class="progress">
+                    <div class="progress-bar l-blush" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" style="width: {{ec}};"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+        <div style="background-color:#30373e;"  class="card">
+            <div class="body">
+                <h3  style="color:white;" class="number count-to m-b-0" data-from="0" data-to="{{nlis}}" data-speed="2500" data-fresh-interval="1000">3218 <i class="zmdi zmdi-trending-up float-right"></i></h3>
+                <p style="color:white;" >Notice</p> <i style="color:white;" class="zmdi zmdi-file"> </i></p>
+                <div class="progress">
+                    <div class="progress-bar l-green" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" style="width: {{nlis}};"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div  class="col-lg-4 col-md-12">
+        <div  style="background-color:#30373e;" class="card">
+            <div class="body">
+                <h3 style="color:white;" class="number count-to m-b-0" data-from="0" data-to="{{mall}}" data-speed="2500" data-fresh-interval="1000">284 <i class="zmdi zmdi-trending-up float-right"></i></h3>
+                <p style="color:white;" >Society Members</p> <i style="color:white;" class="zmdi zmdi-mood"></i></p>
+                <div class="progress">
+                    <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" style="width: {{mall}};"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Signature Park Bootstrap Template - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'secretary/assets2/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'secretary/assets2/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  {% comment %} <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"> {% endcomment %}
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'secretary/assets2/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'secretary/assets2/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'secretary/assets2/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'secretary/assets2/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'secretary/assets2/css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Signature Park - v4.3.0
+  * Template URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Property Search Section ======= -->
+  <div class="click-closed"></div>
+  <!--/ Form Search Star /-->
+  <div class="box-collapse">
+    <div class="title-box-d">
+      <h3 class="title-d">Search Property</h3>
+    </div>
+    <span class="close-box-collapse right-boxed bi bi-x"></span>
+    <div class="box-collapse-wrap form">
+      <form class="form-a">
+        <div class="row">
+          <div class="col-md-12 mb-2">
+            <div class="form-group">
+              <label class="pb-2" for="Type">Keyword</label>
+              <input type="text" class="form-control form-control-lg form-control-a" placeholder="Keyword">
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label class="pb-2" for="Type">Type</label>
+              <select class="form-control form-select form-control-a" id="Type">
+                <option>All Type</option>
+                <option>For Rent</option>
+                <option>For Sale</option>
+                <option>Open House</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label class="pb-2" for="city">City</label>
+              <select class="form-control form-select form-control-a" id="city">
+                <option>All City</option>
+                <option>Alabama</option>
+                <option>Arizona</option>
+                <option>California</option>
+                <option>Colorado</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label class="pb-2" for="bedrooms">Bedrooms</label>
+              <select class="form-control form-select form-control-a" id="bedrooms">
+                <option>Any</option>
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label class="pb-2" for="garages">Garages</label>
+              <select class="form-control form-select form-control-a" id="garages">
+                <option>Any</option>
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label class="pb-2" for="bathrooms">Bathrooms</label>
+              <select class="form-control form-select form-control-a" id="bathrooms">
+                <option>Any</option>
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label class="pb-2" for="price">Min Price</label>
+              <select class="form-control form-select form-control-a" id="price">
+                <option>Unlimite</option>
+                <option>$50,000</option>
+                <option>$100,000</option>
+                <option>$150,000</option>
+                <option>$200,000</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-b">Search Property</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div><!-- End Property Search Section -->
+
+
+
+  <!-- ======= Intro Section ======= -->
+  <div class="intro intro-carousel swiper-container position-relative">
+
+    <div class="swiper-wrapper">
+      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url('{% static 'secretary/assets/images/d8.jpg' %}')">
+        <div class="overlay overlay-a"></div>
+        <div class="intro-content display-table">
+          <div class="table-cell">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-8">
+                  <div class="intro-body">
+
+                    </p>
+                    <h1 class="intro-title mb-4 ">
+
+                    </h1>
+                    <p class="intro-subtitle intro-price">
+
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url('{% static 'secretary/assets2/img/slide-2.jpg' %}')">
+        <div class="overlay overlay-a"></div>
+        <div class="intro-content display-table">
+          <div class="table-cell">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-8">
+                  <div class="intro-body">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url('{% static 'secretary/assets2/img/slide-3.jpg' %}')">
+        <div class="overlay overlay-a"></div>
+        <div class="intro-content display-table">
+          <div class="table-cell">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-8">
+                  <div class="intro-body">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div><!-- End Intro Section -->
+
+  <main id="main">
+
+    <!-- ======= Services Section ======= -->
+    <section class="section-services section-t8">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="title-wrap d-flex justify-content-between">
+              <div class="title-box">
+                <h2 style="color:white;" class="title-a">Our Services</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card-box-c foo">
+              <div class="card-header-c d-flex">
+                <div class="card-box-ico">
+                  <span style="color:white;" class="bi bi-cart"></span>
+                </div>
+                <div class="card-title-c align-self-center">
+                  <h2 style="color:white;" class="title-c">Events</h2>
+                </div>
+              </div>
+              <div class="card-body-c">
+                <p style="color:white;" class="content-c">
+                    a social event involving a public performance or entertainment
+                </p>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-box-c foo">
+              <div class="card-header-c d-flex">
+                <div class="card-box-ico">
+                  <span style="color:white;" class="bi bi-calendar4-week"></span>
+                </div>
+                <div class="card-title-c align-self-center">
+                  <h2 style="color:white;" class="title-c">Notice</h2>
+                </div>
+              </div>
+              <div class="card-body-c">
+                <p style="color:white;" class="content-c">
+                    Notices are a means of formal communication targetted at a particular person or a group of persons.
+                </p>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-box-c foo">
+              <div class="card-header-c d-flex">
+                <div class="card-box-ico">
+                  <span style="color:white;" class="bi bi-card-checklist"></span>
+                </div>
+                <div class="card-title-c align-self-center">
+                  <h2 style="color:white;" class="title-c">Suggestions</h2>
+                </div>
+              </div>
+              <div class="card-body-c">
+                <p  style="color:white;" class="content-c">
+                    Suggestion is the psychological process by which one person guides the thoughts, feelings, or behavior of another person.
+                </p>
+              </div>
+              <div class="card-footer-c">
+                <a href="#" class="link-c link-icon">
+                  <span class="bi bi-chevron-right"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+              <div class="card-box-c foo">
+                <div class="card-header-c d-flex">
+                  <div class="card-box-ico">
+                    <span style="color:white;" class="bi bi-cart"></span>
+                  </div>
+                  <div class="card-title-c align-self-center">
+                    <h2 style="color:white;" class="title-c">Complain</h2>
+                  </div>
+                </div>
+                <div class="card-body-c">
+                  <p style="color:white;"class="content-c">
+                    a statement that something is unsatisfactory or unacceptable.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-box-c foo">
+                <div class="card-header-c d-flex">
+                  <div class="card-box-ico">
+                    <span style="color:white;" class="bi bi-calendar4-week"></span>
+                  </div>
+                  <div class="card-title-c align-self-center">
+                    <h2 style="color:white;" class="title-c"> Maintainance</h2>
+                  </div>
+                </div>
+                <div class="card-body-c">
+                  <p style="color:white;" class="content-c">
+                    One of them is maintenance charge which is paid monthly or annually by the apartment owners to the society complex or resident welfare association for upkeep of the common area
+                  </p>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card-box-c foo">
+                <div class="card-header-c d-flex">
+                  <div class="card-box-ico">
+                    <span style="color:white;" class="bi bi-card-checklist"></span>
+                  </div>
+                  <div class="card-title-c align-self-center">
+                    <h2 style="color:white;" class="title-c">Rent/Sell </h2>
+                  </div>
+                </div>
+                <div class="card-body-c">
+                  <p  style="color:white;" class="content-c">
+                    The person to whom you sell the property becomes the new owner. Rent is when you lease your property to someone to use temporarily in exchange for money.
+                  </p>
+                </div>
+                <div class="card-footer-c">
+                  <a href="#" class="link-c link-icon">
+                    <span class="bi bi-chevron-right"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section><!-- End Services Section -->
+
+
+    <!-- ======= Testimonials Section ======= -->
+    <section class="section-testimonials section-t8 nav-arrow-a">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="title-wrap d-flex justify-content-between">
+              <div class="title-box">
+                <h2 style="color:white;" class="title-a">Reviews</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="testimonial-carousel" class="swiper-container">
+          <div class="swiper-wrapper">
+
+            <div class="carousel-item-a swiper-slide">
+              <div class="testimonials-box">
+                <div class="row">
+                  <div class="col-sm-12 col-md-6">
+                    <div class="testimonial-img">
+                      <img src="{% static 'secretary/assets2/img/testimonial-1.jpg' %}" alt="" class="img-fluid">
+                    </div>
+                  </div>
+                  <div class="col-sm-12 col-md-6">
+                    <div class="testimonial-ico">
+                      <i class="bi bi-chat-quote-fill"></i>
+                    </div>
+                    <div class="testimonials-content">
+                      <p class="testimonial-text">
+                        We are lucky that we are staye in this society
+                        everyone is familiar to us.
+                      </p>
+                    </div>
+                    <div class="testimonial-author-box">
+                      <img src="{% static 'secretary/assets2/img/mini-testimonial-1.jpg' %}" alt="" class="testimonial-avatar">
+                      <h5 style="color:white;" class="testimonial-author">Aakash - Anjali</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End carousel item -->
+
+            <div class="carousel-item-a swiper-slide">
+              <div class="testimonials-box">
+                <div class="row">
+                  <div class="col-sm-12 col-md-6">
+                    <div class="testimonial-img">
+                      <img src="{% static 'secretary/assets2/img/testimonial-2.jpg' %}" alt="" class="img-fluid">
+                    </div>
+                  </div>
+                  <div class="col-sm-12 col-md-6">
+                    <div class="testimonial-ico">
+                      <i class="bi bi-chat-quote-fill"></i>
+                    </div>
+                    <div class="testimonials-content">
+                      <p class="testimonial-text">
+                        We are living since 5 years and we love with this society.
+                        all members are so good.
+                        Signature Park celebrates it's events in very memorable way.
+                      </p>
+                    </div>
+                    <div class="testimonial-author-box">
+                      <img src="{% static 'secretary/assets2/img/mini-testimonial-2.jpg' %}" alt="" class="testimonial-avatar">
+                      <h5 style="color:white;" class="testimonial-author">Arjun Shah</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End carousel item -->
+
+          </div>
+        </div>
+        <div class="testimonial-carousel-pagination carousel-pagination"></div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <section class="section-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-4">
+          <div class="widget-a">
+            <div class="w-header-a">
+              <h3 class="w-title-a text-brand">Signature Park</h3>
+            </div>
+            <div class="w-body-a">
+              <p class="w-text-a color-text-a">
+               Signature Park is a very good society.
+              </p>
+            </div>
+            <div class="w-footer-a">
+              <ul class="list-unstyled">
+                <li class="color-a">
+                  <span class="color-text-a">Phone .</span> 91-7984645613
+                </li>
+                <li class="color-a">
+                  <span class="color-text-a">Email .</span> pateljinal510@gmail.com
+                </li>
+              </ul>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </footer><!-- End  Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'secretary/assets2/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'secretary/assets2/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'secretary/assets2/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'secretary/assets2/js/main.js' %}"></script>
+
+</body>
+
+</html>
+
+</section>
+{% endblock %}
+                <!-- Scripts -->
+                <script src="{% static 'secretary/assets/bundles/libscripts.bundle.js' %}"></script>
+        <script src="{% static 'secretary/assets/bundles/vendorscripts.bundle.js' %}"></script>
+
+        <script src="{% static 'secretary/assets/bundles/mainscripts.bundle.js' %}"></script>
+                            <script src="{% static 'secretary/assets/bundles/morrisscripts.bundle.js' %}"></script>
+<script src="{% static 'secretary/assets/bundles/jvectormap.bundle.js' %}"></script>
+<script src="{% static 'secretary/assets/bundles/knob.bundle.js' %}"></script>
+<script src="{% static 'secretary/assets/js/pages/index.js' %}"></script>
+				<!--Start of Tawk.to Script-->
+        <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/59f5afbbbb0c3f433d4c5c4c/default';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+        </script>
+        <!--End of Tawk.to Script-->
+    </body>
+</html>

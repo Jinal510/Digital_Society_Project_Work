@@ -1,0 +1,255 @@
+﻿{% extends 'secretary/dashboard/members-index.html' %} 
+
+{% block content %} 
+    
+<section class="content home">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2>Profile <small class="text-muted">Welcome to Signature Park</small></h2>
+                    </div>            
+                    <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                        
+                        
+                                                    <button class="btn btn-white btn-icon btn-round d-none d-md-inline-block float-right m-l-10" type="button">
+                                <i class="zmdi zmdi-edit"></i>
+                            </button>
+                        
+                        <ul class="breadcrumb float-md-right">
+                            <li class="breadcrumb-item"><a href="{% url 'login' %}"><i class="zmdi zmdi-home"></i> Signature Park</a></li>
+                                                           
+                                                                                        <li class="breadcrumb-item active">Profile</li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">                
+                
+    <div class="row clearfix profile-page">
+        <div class="col-lg-4 col-md-12">
+            <div style="color:white; background-color:#30373e; border-color: white;" class="card profile-header">
+                <div class="body text-center">
+                    <div class="profile-image"> <img src="{{mid.profile_pic.url}}" alt=""> </div>
+                    <div>
+                        <h4 style="color:white; background-color:#30373e; border-color: white;" class="m-b-0"><strong>{{mid.firstname}} {{mid.lastname}} </strong> </h4>
+                        <span style="color:white; background-color:#30373e; border-color: white;" class="job_post">{{uid.role}}</span>
+                        <p style="color:white; background-color:#30373e; border-color: white;">{{mid.address}}</p>
+                    </div>
+                  
+                </div>                    
+            </div>                               
+
+                
+        </div>
+        <div class="col-lg-8 col-md-12">
+            <div style="color:white; background-color:#30373e; border-color: white;" class="card">
+                <ul class="nav nav-tabs">
+                    <li style="color:white;" class="nav-item"><a class="nav-link active" data-toggle="tab" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Account">My Profile</a></li>                        
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane body active"  id="about">
+                        <p style="color:white; background-color:#30373e; border-color: white;">I am {{mid.firstname}} {{cmid.lastname}} and  I am Member of this Signature Park.</p>
+                        <h6 style="color:white; background-color:#30373e; border-color: white;">Qualifications</h6>
+                        <hr>
+                        <ul class="list-unstyled">
+                           
+                            <li>
+                                <p style="color:white; background-color:#30373e; border-color: white;"><strong>Country:</strong>{{mid.country}}</p>
+                            </li>
+
+                            <li>
+                                <p style="color:white; background-color:#30373e; border-color: white;"><strong>State:</strong>{{mid.state}}</p>
+                            </li>
+
+                            <li>
+                                <p style="color:white; background-color:#30373e; border-color: white;"><strong>City:</strong>{{mid.city}}</p>
+                            </li>
+
+                            <li>
+                                <p style="color:white; background-color:#30373e; border-color: white;"><strong>Contact:</strong>{{mid.contact}}</p>
+                            </li>
+                            
+                            <li>
+                                <p style="color:white; background-color:#30373e; border-color: white;"><strong>Gender:</strong>{{mid.gender}}</p>
+                            </li>
+
+                            <li>
+                                <p style="color:white; background-color:#30373e; border-color: white;"><strong>Address:</strong>{{mid.address}}</p>
+                            </li>
+
+                            <li>
+                                <p style="color:white; background-color:#30373e; border-color: white;"><strong>Occupation:</strong>{{mid.work}}</p>
+                            </li>
+                            
+                            <li>
+                                <p style="color:white; background-color:#30373e; border-color: white;"><strong>About:</strong>{{mid.aboutme}}</p>
+                            </li>
+
+                            <li>
+                                <p style="color:white; background-color:#30373e; border-color: white;"><strong>Age:</strong>{{mid.age}}</p>
+                            </li>
+
+                            <!-- <li>
+                                <p style="color:white; background-color:#30373e; border-color: white;"><strong>Job Address:</strong>{{mid.job_address}}</p>
+                            </li> -->
+
+                            <li>
+                                <p style="color:white; background-color:#30373e; border-color: white;"><strong>BLood Group:</strong>{{mid.blood_grp}}</p>
+                            </li>
+
+                            <li>
+                                <p style="color:white; background-color:#30373e; border-color: white;"><strong>Birth Date:</strong>{{mid.birthdate}}</p>
+                            </li>
+
+                             <li>
+                                <p style="color:white; background-color:#30373e; border-color: white;"><strong>House Number:</strong>{{mid.house_no}}</p>
+                            </li>
+
+                         
+                        </ul>
+                        
+                    </div>
+                    <div class="tab-pane body" id="Account">
+                        <form action="{% url 'memberreset-profile-password' %}" class="form" method="POST" >
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input style="color:white; background-color:#30373e; border-color: white;" type="email" class="form-control" name="email" placeholder="email" value="{{uid.email}}" readonly>
+                            </div>
+                            <div class="form-group">
+                                <input style="color:white; background-color:#30373e; border-color: white;" type="password" class="form-control" name="currentpassword" placeholder="Current Password" value="{{uid.password}}">
+                            </div>
+                            <div class="form-group">
+                                <input style="color:white; background-color:#30373e; border-color: white;" type="password" class="form-control" name="newpassword" placeholder="New Password">
+                            </div>
+                            <input type="submit" class="btn btn-info btn-round" value="Save Changes">
+                        </form>
+                        <hr>
+                        <form action="{% url 'memberresetprofile' %}" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                        <div class="col-md-12">
+                            <div class="form-group m-b-10">
+                                <input style="color:white; background-color:#30373e; border-color: white;" type="file" class="form-control" name="profile">
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <input style="color:white; background-color:#30373e; border-color: white;"  type="text" class="form-control" name="firstname" value="{{mid.firstname}}" placeholder="First Name">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <input style="color:white; background-color:#30373e; border-color: white;"  type="text" class="form-control" name="lastname" value="{{mid.lastname}}" placeholder="Last Name">
+                                </div>
+                            </div>  
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input style="color:white; background-color:#30373e; border-color: white;"  type="text" class="form-control" name="country" placeholder="country" value="{{mid.country}}">
+                                </div>
+                            </div>   
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input style="color:white; background-color:#30373e; border-color: white;"  type="text" class="form-control" name="state" placeholder="state" value="{{mid.state}}">
+                                </div>
+                            </div>                                  
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input style="color:white; background-color:#30373e; border-color: white;"  type="text" class="form-control" name="city" placeholder="City" value="{{mid.city}}">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input style="color:white; background-color:#30373e; border-color: white;"  type="text" class="form-control" name = "contact" placeholder="contact" value="{{mid.contact}}">
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input style="color:white; background-color:#30373e; border-color: white;"  type="text" class="form-control" name="gender" placeholder="gender" value="{{mid.gender}}">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input style="color:white; background-color:#30373e; border-color: white;"  type="text" class="form-control" name="age" placeholder="age" value="{{mid.age}}">
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input style="color:white; background-color:#30373e; border-color: white;"  type="text" class="form-control" name="blood_grp" placeholder="Blood Group" value="{{mid.blood_grp}}">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input style="color:white; background-color:#30373e; border-color: white;"  type="date" class="form-control" name="birthdate" placeholder="Birth Date" value="{{mid.birthdate}}">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input style="color:white; background-color:#30373e; border-color: white;"  type="text" class="form-control" name="marrial_status" placeholder="Marrial Status" value="{{mid.marrial_status}}">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input style="color:white; background-color:#30373e; border-color: white;"  type="text" class="form-control" name="house_no" placeholder="House Number" value="{{mid.house_no}}">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input style="color:white; background-color:#30373e; border-color: white;"  type="text" class="form-control" name="vechicle_deatails" placeholder="Vechicle Deatails" value="{{mid.vechicle_deatails}}">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input style="color:white; background-color:#30373e; border-color: white;"  type="text" class="form-control" name="family_members" placeholder="Family Members" value="{{mid.family_members}}">
+                                </div>
+                            </div>
+                            <!-- <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input style="color:white; background-color:#30373e; border-color: white;"  type="text" class="form-control" name="job_address" placeholder="Job Address" value="{{mid.job_address}}">
+                                </div>
+                            </div> -->
+                            
+                            <div class="col-md-12">
+                                <div class="form-group m-b-10">
+                                    <textarea style="color:white; background-color:#30373e; border-color: white;" rows="4" class="form-control no-resize" name="address" placeholder="Address Line 1">{{mid.address}}</textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group m-b-10">
+                                    <textarea style="color:white; background-color:#30373e; border-color: white;" rows="4" class="form-control no-resize" name="work" placeholder="Occupation">{{mid.work}}</textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group m-b-10">
+                                    <textarea style="color:white; background-color:#30373e; border-color: white;" rows="4" class="form-control no-resize" name="aboutme" placeholder="aboutme">{{mid.aboutme}}</textarea>
+                                </div>
+                            </div>
+                 
+                           
+                            
+                           
+                            <div class="col-md-12">
+                                <button class="btn btn-primary btn-round">Save Changes</button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>                        
+                </div>
+            </div>
+                      
+        </div>
+    </div>
+
+            </div>
+</section>
+
+{% endblock %}
+                

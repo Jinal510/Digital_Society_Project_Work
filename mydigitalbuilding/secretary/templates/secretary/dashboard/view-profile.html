@@ -1,0 +1,196 @@
+﻿{% extends 'secretary/dashboard/members-index.html' %} 
+
+{% block content %}     
+<section class="content home">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2>Profile <small class="text-muted">Welcome to Signature Park</small></h2>
+                    </div>            
+                    <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                        
+                        
+                                                    <button class="btn btn-white btn-icon btn-round d-none d-md-inline-block float-right m-l-10" type="button">
+                                <i class="zmdi zmdi-edit"></i>
+                            </button>
+                        
+                        <ul class="breadcrumb float-md-right">
+                            <li class="breadcrumb-item"><a href="{% url 'login' %}"><i class="zmdi zmdi-home"></i> Signature Park</a></li>
+                                                           
+                                                                                        <li class="breadcrumb-item active">Profile</li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">                
+                
+    <div class="row clearfix profile-page">
+        <div  class="col-lg-4 col-md-12">
+            <div class="card profile-header">
+                <div style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;" class="body text-center">
+                    <div class="profile-image"> <img src="{{memberid.profile_pic.url}}" alt=""> </div>
+                    <div>
+                        <h4 style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;" class="m-b-0"><strong>{{memberid.firstname}}</strong> {{memberid.lastname}}</h4>
+                        <span style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;" class="job_post">Member</span>
+                        <p style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;">{{memberid.admemberess}}</p>
+                    </div>
+                   
+                    
+                </div>                    
+            </div>                               
+                
+        </div>
+        <div class="col-lg-8 col-md-12">
+            <div style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;" class="card">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#about">About</a></li>
+                    
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane body active" id="about">
+                        <p style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;">{{memberid.firstname}} {{memberid.lastname}} is a respective member of this society</p>
+                        <h6 style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;">Qualifications</h6>
+                        <hr>
+                        <ul class="list-unstyled">
+                            <li>
+                                <p style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;"><strong>Country:</strong>{{memberid.country}}</p>
+                            </li>
+
+                            <li>
+                                <p style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;"><strong>State:</strong>{{memberid.state}}</p>
+                            </li>
+
+                            <li>
+                                <p style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;"><strong>City:</strong>{{memberid.city}}</p>
+                            </li>
+                          
+                            <li>
+                                <p style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;"><strong>Gender:</strong>{{memberid.gender}}</p>
+                            </li>
+
+                            <li>
+                                <p style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;"><strong>Address:</strong>{{memberid.address}}</p>
+                            </li>
+
+                            <li>
+                                <p style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;"><strong>Contact:</strong>{{memberid.contact}}</p>
+                            </li>
+
+                            <li>
+                                <p style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;"><strong>Occupation:</strong>{{memberid.work}}</p>
+                            </li>
+
+                            <li>
+                                <p style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;"><strong>Age:</strong>{{memberid.age}}</p>
+                            </li>
+
+                            <!-- <li>
+                                <p style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;"><strong>Job Address:</strong>{{memberid.job_address}}</p>
+                            </li> -->
+
+                            <li>
+                                <p style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;"><strong>BLood Group:</strong>{{memberid.blood_grp}}</p>
+                            </li>
+
+                            <li>
+                                <p style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;"><strong>Birth Date:</strong>{{memberid.birthdate}}</p>
+                            </li>
+
+                             <li>
+                                <p style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;"><strong>Birth Date:</strong>{{memberid.house_no}}</p>
+                            </li>
+
+                           
+                         
+                        </ul>
+                       
+                    </div>
+                    <div class="tab-pane body" id="Account">
+                        <form action="{% url 'reset-profile-password' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" placeholder="email" value="{{uid.email}}" readonly>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="currentpassword" placeholder="Current Password" value="{{uid.password}}">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="newpassword" placeholder="New Password">
+                            </div>
+                            <input type="submit" class="btn btn-info btn-round" value="Save Changes">
+                        </form>
+                        <hr>
+                        <form action="{% url 'resetprofile' %}" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                        <div class="col-md-12">
+                            <div class="form-group m-b-10">
+                                <input type="file" class="form-control" name="profile">
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="firstname" value="{{memberid.firstname}}" placeholder="First Name">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="lastname" value="{{memberid.lastname}}" placeholder="Last Name">
+                                </div>
+                            </div>  
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="country" placeholder="country" value="{{memberid.country}}">
+                                </div>
+                            </div>                                  
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="city" placeholder="City" value="{{memberid.city}}">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name = "contact" placeholder="contact" value="{{memberid.contact}}">
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="gender" placeholder="gender" value="{{memberid.gender}}">
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-12">
+                                <div class="form-group m-b-10">
+                                    <textarea rows="4" class="form-control no-resize" name="admemberess" placeholder="Admemberess Line 1">{{memberid.admemberess}}</textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group m-b-10">
+                                    <textarea rows="4" class="form-control no-resize" name="aboutme" placeholder="aboutme">{{memberid.aboutme}}</textarea>
+                                </div>
+                            </div>
+                            <!-- <div class="col-md-12">
+                                <div class="form-group m-b-10">
+                                    <textarea rows="4" class="form-control no-resize" name="job_address" placeholder="Job Address">{{memberid.job_address}}</textarea>
+                                </div>
+                            </div>
+                             -->
+                            
+                           
+                            <div class="col-md-12">
+                                <button class="btn btn-primary btn-round">Save Changes</button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>                        
+                </div>
+            </div>
+           
+        </div>
+    </div>
+
+            </div>
+        </section>
+{% endblock %}
+                

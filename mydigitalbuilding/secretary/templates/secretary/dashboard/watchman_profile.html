@@ -1,0 +1,217 @@
+﻿{% extends 'secretary/dashboard/watchman-index.html' %} 
+
+{% block content %} 
+    
+<section class="content home">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2>Profile <small class="text-muted">Welcome to Signature Park</small></h2>
+                    </div>            
+                    <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                        
+                        
+                               
+                        
+                        <ul class="breadcrumb float-md-right">
+                            <li class="breadcrumb-item"><a href="{% url 'login' %}"><i class="zmdi zmdi-home"></i> Signature Park</a></li>
+                            <li class="breadcrumb-item active">Profile</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">                
+                
+    <div class="row clearfix profile-page">
+        <div class="col-lg-4 col-md-12">
+            <div style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;" class="card profile-header">
+                <div class="body text-center">
+                    <div class="profile-image"> <img src="{{wid.profile_pic.url}}" alt=""> </div>
+                    <div>
+                        <h4  style="color:white;" class="m-b-0"><strong>{{wid.firstname}} {{wid.lastname}} </strong> </h4>
+                        <span  style="color:white;" class="job_post">{{uid.role}}</span>
+                        <p  style="color:white;">{{wid.address}}</p>
+                    </div>
+                    <div>
+                       
+                    </div>
+                   
+                </div>                    
+            </div>                                             
+        </div>
+        <div class="col-lg-8 col-md-12">
+            <div style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;" class="card">
+                <ul class="nav nav-tabs">
+                    <li  style="color:white;"class="nav-item"><a class="nav-link active" data-toggle="tab" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Account">My Profile</a></li>                        
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane body active" id="about">
+                        <p  style="color:white;">I am {{wid.firstname}} {{wid.lastname}} and  I am Security of this Signature Park.</p>
+                        <h6  style="color:white;">Qualifications</h6>
+                        <hr>
+                        <ul class="list-unstyled">
+                           
+                            <li>
+                                <p  style="color:white;"><strong>Country:</strong>{{wid.country}}</p>
+                            </li>
+
+                            <li>
+                                <p  style="color:white;"><strong>State:</strong>{{wid.state}}</p>
+                            </li>
+
+                            <li>
+                                <p  style="color:white;"><strong>City:</strong>{{wid.city}}</p>
+                            </li>
+
+                            <li>
+                                <p  style="color:white;"><strong>Contact:</strong>{{wid.contact}}</p>
+                            </li>
+                            
+                            <li>
+                                <p  style="color:white;"><strong>Gender:</strong>{{wid.gender}}</p>
+                            </li>
+
+                            <li>
+                                <p  style="color:white;"><strong>Address:</strong>{{wid.address}}</p>
+                            </li>
+
+                            <li>
+                                <p  style="color:white;"><strong>Occupation:</strong>{{wid.work}}</p>
+                            </li>
+                            
+                            <li>
+                                <p  style="color:white;"><strong>About:</strong>{{wid.aboutme}}</p>
+                            </li>
+
+                            <li>
+                                <p  style="color:white;"><strong>Age:</strong>{{wid.age}}</p>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                    <div style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;" class="tab-pane body" id="Account">
+                        <form action="{% url 'watchmanreset_profile_password' %}" class="form" method="POST" >
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input   type="email" class="form-control" name="email" placeholder="email" value="{{uid.email}}" readonly>
+                            </div>
+                            <div class="form-group">
+                                <input  style="color:white;" type="password" class="form-control" name="currentpassword" placeholder="Current Password" value="{{uid.password}}">
+                            </div>
+                            <div class="form-group">
+                                <input  style="color:white;" type="password" class="form-control" name="newpassword" placeholder="New Password">
+                            </div>
+                            <input type="submit" class="btn btn-info btn-round" value="Save Changes">
+                        </form>
+                        <hr>
+                        <form action="{% url 'watchmanresetprofile' %}" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                        <div class="col-md-12">
+                            <div class="form-group m-b-10">
+                                <input  style="color:white;" type="file" class="form-control" name="profile">
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <input  style="color:white;" type="text" class="form-control" name="firstname" value="{{wid.firstname}}" placeholder="First Name">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <input  style="color:white;" type="text" class="form-control" name="lastname" value="{{wid.lastname}}" placeholder="Last Name">
+                                </div>
+                            </div>  
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input  style="color:white;" type="text" class="form-control" name="country" placeholder="country" value="{{wid.country}}">
+                                </div>
+                            </div>   
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input  style="color:white;" type="text" class="form-control" name="state" placeholder="state" value="{{wid.state}}">
+                                </div>
+                            </div>                                  
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input  style="color:white;" type="text" class="form-control" name="city" placeholder="City" value="{{wid.city}}">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input  style="color:white;" type="text" class="form-control" name = "contact" placeholder="contact" value="{{wid.contact}}">
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input  style="color:white;" type="text" class="form-control" name="gender" placeholder="gender" value="{{wid.gender}}">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input  style="color:white;" type="text" class="form-control" name="age" placeholder="age" value="{{wid.age}}">
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input  style="color:white;" type="text" class="form-control" name="blood_grp" placeholder="Blood Group" value="{{wid.blood_grp}}">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input  style="color:white;" type="date" class="form-control" name="birthdate" placeholder="Birth Date" value="{{wid.birthdate}}">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input  style="color:white;" type="text" class="form-control" name="marrial_status" placeholder="Marrial Status" value="{{wid.marrial_status}}">
+                                </div>
+                            </div>                  
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input  style="color:white;" type="text" class="form-control" name="vechicle_deatails" placeholder="Vechicle Deatails" value="{{wid.vechicle_deatails}}">
+                                </div>
+                            </div>
+
+                            
+                            
+                            <div class="col-md-12">
+                                <div class="form-group m-b-10">
+                                    <textarea  style="color:white;" rows="4" class="form-control no-resize" name="address" placeholder="Address Line 1">{{wid.address}}</textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group m-b-10">
+                                    <textarea  style="color:white;" rows="4" class="form-control no-resize" name="work" placeholder="Occupation">{{wid.work}}</textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group m-b-10">
+                                    <textarea  style="color:white;" rows="4" class="form-control no-resize" name="aboutme" placeholder="aboutme">{{wid.aboutme}}</textarea>
+                                </div>
+                            </div>
+                           
+                            
+                           
+                            <div class="col-md-12">
+                                <button class="btn btn-primary btn-round">Save Changes</button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>                        
+                </div>
+            </div>              
+        </div>
+    </div>
+
+            </div>
+</section>
+
+{% endblock %}
+                

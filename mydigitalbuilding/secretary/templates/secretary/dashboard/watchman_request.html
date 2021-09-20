@@ -1,0 +1,138 @@
+﻿{% extends 'secretary/dashboard/index.html' %}
+{% load static %}
+{% block content %}
+
+<section class="content home">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2>All Watchman <small class="text-muted">Welcome to Signature Park</small></h2>
+                    </div>            
+                    <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                        
+                                                    <button class="btn btn-white btn-icon btn-round d-none d-md-inline-block float-right m-l-10" type="button">
+                                <i class="zmdi zmdi-plus"></i>
+                            </button>
+                        
+                        
+                        <ul class="breadcrumb float-md-right">
+                            <li class="breadcrumb-item"><a href="..\dashboard\index.html"><i class="zmdi zmdi-home"></i> Signature Park</a></li>
+                                                          
+                                                                                        <li class="breadcrumb-item active">All Watchman</li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">                
+                
+    <div  style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;" style="background-color: turquoise;" class="row clearfix">
+        <div  style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;" class="col-md-12">
+            <div  style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;" class="card patients-list">
+                <div class="header">
+                    <h2 style=color:white ><strong  style=color:white>Watchman</strong> List</h2>
+                    
+                </div>
+                <div style=color:white class="body">
+                    <!-- Nav tabs -->
+                    <ul style=color:white class="nav nav-tabs padding-0">
+                        <li style=color:white class="nav-item"><a class="nav-link active" data-toggle="tab" href="#All">Pending Request</a></li>
+                        <li style=color:white class="nav-item"><a class="nav-link" data-toggle="tab" href="#approve">Watchman</a></li>
+                    </ul>
+                        
+                    <!-- Tab panes -->
+                    <div style=color:white class="tab-content m-t-10">
+                        <div style=color:white class="tab-pane table-responsive active" id="All">
+                            <table style=color:white class="table m-b-0 table-hover">
+                                <thead>
+                                    <tr style="color:white;">                                       
+                                        <th >Media</th>
+                                        <th>Watchmans ID</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Contact Number</th>
+                                        <th>Status</th>
+                                        <th colspan="2">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for i in wid %}
+                                    {% if "Approved" not in i.status %}
+                                    <tr style="color:white;">
+                                        <td><span class="list-icon"><img class="patients-img" src="{{i.profile_pic.url}}" alt=""></span></td>
+                                        <td><span class="list-name">{{i.id}}</span></td>
+                                        <td>{{i.firstname}}</td>
+                                        <td>{{i.lastname}}</td>
+                                        <td>{{i.contact}}</td>
+                                        
+                                        <td>                                      
+                                            {% if "Pending" in i.status %}
+                                            <span style="color:yellow; background-color:#30373e; border-color: #9e9e9e;">Pending</span>
+                                            {% endif %}
+                                            {% if "Rejected" in i.status %}
+                                            <span style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;">Rejected</span>
+                                            {% endif %}
+                                            {% if "Approved" in i.status %}
+                                            <span style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;">Approved</span>
+                                            {% endif %}   
+                                        </td>                                  
+                                        <td>
+                                            <button style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;" class="btn btn-icon btn-neutral btn-icon-mini"><a href="{% url 'watchman_status' pk=i.id status='Approved' %}"><i class="zmdi zmdi-check"></i></a></button>
+                                            <button style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;" class="btn btn-icon btn-neutral btn-icon-mini"><a href="{% url 'watchman_status' pk=i.id status='Rejected' %}"><i class="zmdi zmdi-close"></i></a></button>
+                                        </td>
+                                    </tr>
+                                    
+                                </tbody>
+                                {% endif %}
+                                {% endfor %}
+                            </table>                            
+                        </div>
+                        <div style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;" class="tab-pane table-responsive" id="approve">
+                            <table style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;" class="table m-b-0 table-hover">
+                                <thead>
+                                    <tr style="color:white;">                                       
+                                        <th>Media</th>
+                                        <th>Watchmans ID</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Contact Number</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for i in wid %}
+                                    {% if "Pending" not in i.status %}
+                                    <tr style="color:white;">
+                                        <td><span class="list-icon"><img class="patients-img" src="{{i.profile_pic.url}}" alt=""></span></td>
+                                        <td><span class="list-name">{{i.id}}</span></td>
+                                        <td>{{i.firstname}}</td>
+                                        <td>{{i.lastname}}</td>
+                                        <td>{{i.contact}}</td>
+                                        
+                                        <td>                                      
+                                            {% if "Pending" in i.status %}
+                                            <span class="" style="color: black;">Pending</span>
+                                            {% endif %}
+                                            {% if "Rejected" in i.status %}
+                                            <span class="" style="color: red;">Rejected</span>
+                                            {% endif %}
+                                            {% if "Approved" in i.status %}
+                                            <span class="" style="color: green;">Approved</span>
+                                            {% endif %}   
+                                        </td>                                  
+                                    </tr>
+                                    {% endif %}
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            </div>
+</section>
+
+{% endblock %}
+        

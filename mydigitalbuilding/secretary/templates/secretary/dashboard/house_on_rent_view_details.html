@@ -1,0 +1,62 @@
+﻿{% extends 'secretary/dashboard/members-index.html' %} 
+
+{% block content %} 
+
+<section class="content home">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2> You can view which houses is on rent or sell <small class="text-muted">Welcome to Signature Park</small></h2>
+                    </div>            
+                    <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                        
+                        
+                        
+                        <ul class="breadcrumb float-md-right">
+                            <li class="breadcrumb-item"><a href="{% url 'login' %}"><i class="zmdi zmdi-home"></i> Signature Park</a></li>
+                                                            <li class="breadcrumb-item">View house on rent and sell</li>
+                                                                                        
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">                
+                <div class="blog-page">
+    <div class="row">
+        <div class="col-lg-8 col-md-12 left-box">
+            {% for i in rall %}
+            
+            <div style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;" class="card single_post">
+                <div class="body">
+                    <h3 class="m-t-0 m-b-5"><a href="detail.html">{{i.subject}}</a></h3>
+                    <ul class="meta">
+                        <li><a href="#"><i class="zmdi zmdi-time col-blue"></i>&nbsp; &nbsp; {{i.whenpublished}}</a></li>
+                    </ul>
+                </div>                    
+                <div style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;" class="body">
+                    {% if i.profile_pic %}
+                    <div class="img-post m-b-15">
+                        <img src="{{i.profile_pic.url}}" alt="Awesome Image">
+                    </div>
+                    {% endif %}
+                    <p style="color:white;">Description   : {{i.description}}</p>
+                    <p style="color:white;">House Number  : {{i.h_no}}</p>
+                    <p style="color:white;">BHK           : {{i.bhk}}</p>
+                    <p style="color:white;">House Price   : {{i.h_price}}</p>
+                    <p style="color:white;">Contact NUmber: {{i.contact}}</p>
+                    
+                </div>
+             
+            </div>
+            
+            {% endfor %}
+                           
+        </div>
+        
+    </div>
+</div>
+            </div>
+</section>
+
+{% endblock %}
+           

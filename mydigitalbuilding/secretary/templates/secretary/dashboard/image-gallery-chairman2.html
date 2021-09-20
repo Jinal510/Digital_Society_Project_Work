@@ -1,0 +1,65 @@
+﻿{% extends 'secretary/mainhome.html' %} 
+{% load static %}
+{% block content %}  
+   
+<section class="content home">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-5 col-md-5 col-sm-12">
+                <h2> Gallery<small class="text-muted">Welcome to Signature Park</small></h2>
+            </div>            
+            <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                
+                
+                
+                <ul class="breadcrumb float-md-right">
+                    <li class="breadcrumb-item"><a href="..\dashboard\index.html"><i class="zmdi zmdi-home"></i> Signature Park</a></li>
+                                                    
+                                                                                <li class="breadcrumb-item active"> Event List</li>
+                                            </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">                
+        <div class="blog-page">
+    <div class="col-sm-12">
+        <div style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;" class="card">
+            <div style=color:white class="header">
+                <h2 style=color:white ><strong>Gallery</strong> <small>All pictures taken from Our Society
+               
+            </div>
+            <div class="body">
+                <form action="{% url 'image-gallery-chairman' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                <div id="aniimated-thumbnials" class="list-unstyled row clearfix">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="{% static 'secretary\assets\images\image-gallery\buliding_gallery.jpg '%}"> <img class="img-fluid img-thumbnail" src="{% static 'secretary\assets\images\image-gallery\thumb\buliding_gallery.jpg '%}" alt=""> </a> </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="{% static 'secretary\assets\images\image-gallery\gallery7.jpg '%}"> <img class="img-fluid img-thumbnail" src="{% static 'secretary\assets\images\image-gallery\thumb\gallery7.jpg '%}" alt=""> </a> </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="{% static 'secretary\assets\images\image-gallery\gallery8.jpg '%}"> <img class="img-fluid img-thumbnail" src="{% static 'secretary\assets\images\image-gallery\thumb\gallery8.jpg '%}" alt=""> </a> </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="{% static 'secretary\assets\images\image-gallery\gallery9.jpg '%}"> <img class="img-fluid img-thumbnail" src="{% static 'secretary\assets\images\image-gallery\thumb\gallery9.jpg '%}" alt=""> </a> </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="{% static 'secretary\assets\images\image-gallery\images.jpg '%}"> <img class="img-fluid img-thumbnail" src="{% static 'secretary\assets\images\image-gallery\thumb\images.jpg '%}" alt=""> </a> </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="{% static 'secretary\assets\images\image-gallery\kitchen.jpg '%}"> <img class="img-fluid img-thumbnail" src="{% static 'secretary\assets\images\image-gallery\thumb\kitchen.jpg '%}" alt=""> </a> </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="{% static 'secretary\assets\images\image-gallery\kitchen1.jpeg '%}"> <img class="img-fluid img-thumbnail" src="{% static 'secretary\assets\images\image-gallery\thumb\kitchen1.jpeg '%}" alt=""> </a> </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="{% static 'secretary\assets\images\image-gallery\kitchen3.jpg '%}"> <img class="img-fluid img-thumbnail" src="{% static 'secretary\assets\images\image-gallery\thumb\kitchen3.jpg '%}" alt=""> </a> </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="{% static 'secretary\assets\images\image-gallery\r1.jpg '%}"> <img class="img-fluid img-thumbnail" src="{% static 'secretary\assets\images\image-gallery\thumb\r1.jpg '%}" alt=""> </a> </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="{% static 'secretary\assets\images\image-gallery\rooms1.jpg '%}"> <img class="img-fluid img-thumbnail" src="{% static 'secretary\assets\images\image-gallery\thumb\rooms1.jpg '%}" alt=""> </a> </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="{% static 'secretary\assets\images\image-gallery\rooms2.jpg '%}"> <img class="img-fluid img-thumbnail" src="{% static 'secretary\assets\images\image-gallery\thumb\rooms2.jpg '%}" alt=""> </a> </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="{% static 'secretary\assets\images\image-gallery\rooms3.jpg'%}"> <img class="img-fluid img-thumbnail" src="{% static 'secretary\assets\images\image-gallery\thumb\rooms3.jpg '%}" alt=""> </a> </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="{% static 'secretary\assets\images\image-gallery\rooms4.jpg '%}"> <img class="img-fluid img-thumbnail" src="{% static 'secretary\assets\images\image-gallery\thumb\rooms4.jpg '%}" alt=""> </a> </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="{% static 'secretary\assets\images\image-gallery\rooms5.jpg '%}"> <img class="img-fluid img-thumbnail" src="{% static 'secretary\assets\images\image-gallery\thumb\rooms5.jpg '%}" alt=""> </a> </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="{% static 'secretary\assets\images\image-gallery\ter1.jpg '%}"> <img class="img-fluid img-thumbnail" src="{% static 'secretary\assets\images\image-gallery\thumb\ter1.jpg '%}" alt=""> </a> </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="{% static 'secretary\assets\images\image-gallery\terr2.jpg '%}"> <img class="img-fluid img-thumbnail" src="{% static 'secretary\assets\images\image-gallery\thumb\terr2.jpg '%}" alt=""> </a> </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="{% static 'secretary\assets\images\image-gallery\park1.jpg '%}"> <img class="img-fluid img-thumbnail" src="{% static 'secretary\assets\images\image-gallery\thumb\park1.jpg '%}" alt=""> </a> </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="{% static 'secretary\assets\images\image-gallery\park2.jpg '%}"> <img class="img-fluid img-thumbnail" src="{% static 'secretary\assets\images\image-gallery\thumb\park2.jpg '%}" alt=""> </a> </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="{% static 'secretary\assets\images\image-gallery\park3.jpg '%}"> <img class="img-fluid img-thumbnail" src="{% static 'secretary\assets\images\image-gallery\thumb\park3.jpg '%}" alt=""> </a> </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="{% static 'secretary\assets\images\image-gallery\park4.jpg '%}"> <img class="img-fluid img-thumbnail" src="{% static 'secretary\assets\images\image-gallery\thumb\park4.jpg '%}" alt=""> </a> </div>          
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+</section>
+
+{% endblock %}
+           

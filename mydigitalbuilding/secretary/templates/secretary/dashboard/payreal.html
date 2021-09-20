@@ -1,0 +1,94 @@
+﻿{% extends 'secretary/dashboard/index.html' %}
+{% load static %}
+{% block content %}
+
+<section class="content home">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2>All Watchman <small class="text-muted">Welcome to Signature Park</small></h2>
+                    </div>            
+                    <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                        
+                                                    <button class="btn btn-white btn-icon btn-round d-none d-md-inline-block float-right m-l-10" type="button">
+                                <i class="zmdi zmdi-plus"></i>
+                            </button>
+                        
+                        
+                        <ul class="breadcrumb float-md-right">
+                            <li class="breadcrumb-item"><a href="..\dashboard\index.html"><i class="zmdi zmdi-home"></i> Signature Park</a></li>
+                                                          
+                                                                                        <li class="breadcrumb-item active">All Watchman</li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">                
+                
+    <div  style="background-color: turquoise;" class="row clearfix">
+        <div class="col-md-12">
+            <div style="background-color:linen;" class="card patients-list">
+                <div class="header">
+                    <h2><strong>Watchman</strong> List</h2>
+                    <ul class="header-dropdown">
+                        
+                        <li class="remove">
+                            <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="body">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs padding-0">
+                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#All">Pending Request</a></li>
+                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#approve">Watchman</a></li>
+                    </ul>
+                        
+                    <!-- Tab panes -->
+                    <div class="tab-content m-t-10">
+                        <div class="tab-pane table-responsive active" id="All">
+                            <table class="table m-b-0 table-hover">
+                                <thead>
+                                    <tr>                                       
+                                        <th></th>
+                                        <th>PRICE</th>
+                                        <th></th>
+                                       
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                   
+                                    
+                                    <tr>
+                                       
+                                        <h1>WELCOME USER</h1>
+
+
+                                        
+                                        <form action="{% url 'initiate_payment' %}" method="POST">
+                                            {% csrf_token %}
+                                            <td><input type="hidden" value="{{uid.id}}" name="id" /></td>
+                                            <td><input type="text" value="5000" name="price" readonly /></td>
+                                            <td><input type="submit" value="pay now" /></td>
+                                        </form>
+                                                                     
+                                       
+                                    </tr>
+                                    
+                                </tbody>
+                                
+                            </table>                            
+                        </div>
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            </div>
+</section>
+
+{% endblock %}
+        

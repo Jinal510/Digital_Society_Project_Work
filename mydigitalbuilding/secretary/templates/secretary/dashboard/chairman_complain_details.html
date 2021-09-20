@@ -1,0 +1,59 @@
+{% extends 'secretary/dashboard/index.html' %} 
+
+{% block content %} 
+
+<section class="content home">
+            <div  class="block-header">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2> Complain List <small class="text-muted">Welcome to Signature Park</small></h2>
+                    </div>            
+                    <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                        
+                        
+                        
+                        <ul class="breadcrumb float-md-right">
+                            <li class="breadcrumb-item"><a href="..\dashboard\index.html"><i class="zmdi zmdi-home"></i> Signature Park</a></li>
+                                                          
+                                                                                        <li class="breadcrumb-item active"> Complain List</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    <div class="container-fluid">                
+    <div class="blog-page">
+    <div class="row">
+        <div class="col-lg-8 col-md-12 left-box">
+            {% for i in call %}           
+            <div  style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;" class="card single_post">
+                <div   class="body">
+                    <h3  class="m-t-0 m-b-5"><a href="detail.html">{{i.subject}}</a></h3>
+                    <ul style="color:white;" class="meta">
+                        
+                        <li><a href="#"><i class="zmdi zmdi-account col-blue"></i>&emsp; Posted By &nbsp;: &nbsp;Member {{i.user_id.email}}</a></li>
+                        <li><a href="#"><i class="zmdi zmdi-time col-blue"></i>&nbsp; &nbsp; {{i.whenpublished}}</a></li>
+                    </ul>
+                </div>
+                <div  class="card single_post">
+                    <div style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;" class="body">
+                            <h6 style="color:white"><i class="zmdi  style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;"zmdi-view-list"></i>&ensp;{{i.description}}</h6>
+                        </ul>
+                    </div>                             
+               
+            </div>
+            <hr style="color:#9e9e9e; background-color:#30373e; border-color: #9e9e9e;">
+            
+            {% endfor %}
+            <br>
+            
+                           
+        </div>
+        
+    </div>
+    <br>
+</div>
+            </div>
+</section>
+
+{% endblock %}
+           
